@@ -2,9 +2,9 @@ version: "3"
 
 services:
 
-  local-mssql:
+  mssql:
     image: mcr.microsoft.com/mssql/server:2017-latest
-    container_name: local-mssql
+    container_name: mssql
     ports:
       - 14333:1433
     # volumes:
@@ -15,8 +15,8 @@ services:
       - SA_PASSWORD=Suwei123!@#
     restart: always
     networks:
-      - local-mssql-ms-network
+      - mssql-network
 
 networks:
-  local-mssql-ms-network:
+  mssql-network:
     driver: bridge

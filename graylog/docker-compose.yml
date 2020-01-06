@@ -28,7 +28,7 @@ services:
       - GRAYLOG_ROOT_PASSWORD_SHA2=8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
       - GRAYLOG_HTTP_EXTERNAL_URI=http://127.0.0.1:9000/
     networks:
-      - local-mongo-ms-network
+      - mongo-network
     links:
       - elasticsearch:elasticsearch
     depends_on:
@@ -58,7 +58,7 @@ volumes:
 
 networks:
 
-  # 引用现有mongo集群网络
-  local-mongo-ms-network:
+  # 引用现有mongo网络
+  mongo-network:
     external:
-      name: mongo_local-mongo-ms-network
+      name: mongo_mongo-network
