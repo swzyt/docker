@@ -171,10 +171,13 @@ services:
     ports:
       - 80:80
       - 443:443
+      - 8080:8080
     networks:
       - common-network
     volumes:
-    - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./config/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # web端编译后文件数据卷导入至容器
+      - web-dist:/usr/share/nginx/html
 
   # docker web管理平台 http://localhost:9000
   portainer:
@@ -191,3 +194,7 @@ services:
 networks:
   common-network:
     driver: bridge
+
+volumes:
+  # web端编译后文件数据卷
+  web-dist:
