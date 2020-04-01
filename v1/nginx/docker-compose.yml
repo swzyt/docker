@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.17-alpine
+    restart: always
+    ports:
+      # - 80:80
+      # - 443:443
+      - 9999:9999
+      # - 3001:3001
+      # - 3003:3003
+      # - 3004:3004
+      # - 3007:3007
+      # - 3020:3020
+      # - 3021:3021
+      # - 3023:3023
+    networks:
+      - nginx-network
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/conf.d:/etc/nginx/conf.d
+      # 日志文件
+      - ../docker_data/nginx/log:/var/log/nginx/
+
+networks:
+  nginx-network:
+    driver: bridge
