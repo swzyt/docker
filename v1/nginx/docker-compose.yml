@@ -9,6 +9,8 @@ services:
       # - 80:80
       # - 443:443
       - 9999:9999
+      - 19999:19999
+      - 19998:19998
       # - 3001:3001
       # - 3003:3003
       # - 3004:3004
@@ -25,6 +27,9 @@ services:
       - ./config/conf.d:/etc/nginx/conf.d
       # 日志文件
       - ../docker_data/nginx/log:/var/log/nginx/
+      # web部署
+      - /Users/suwei/WorkSpace/Personal/net-pay/web/dist:/app/net-pay/web/
+      - /Users/suwei/WorkSpace/Personal/vk-food/web/dist:/app/net-pay/web/vkfood/
 
 networks:
   nginx-network:
