@@ -6,7 +6,7 @@ services:
     image: nginx:1.17-alpine
     restart: always
     ports:
-      # - 80:80
+      - 80:80
       # - 443:443
       - 9999:9999
       - 19999:19999
